@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "257683660833",
+    "project_id": "honnyapp",
+    "storage_bucket": "honnyapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:257683660833:android:a07256d4db41b525d1c360",
+        "android_client_info": {
+          "package_name": "com.example.honnyapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrripI-aL8ih-yxlBCZACOieodwlf6nRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
