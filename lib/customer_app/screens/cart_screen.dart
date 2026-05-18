@@ -59,12 +59,10 @@ class CartScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.background,
-
       appBar: AppBar(
         backgroundColor: AppColors.primary,
         title: const Text("سلة المشتريات"),
       ),
-
       body: StreamBuilder(
         stream: cartService.getCart(),
         builder: (context, snapshot) {
@@ -112,7 +110,6 @@ class CartScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text("الإجمالي: $total"),
-
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.accent,

@@ -105,7 +105,6 @@ class OrderTrackingScreen extends StatelessWidget {
 
               return Container(
                 margin: const EdgeInsets.only(bottom: 14),
-
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(18),
@@ -117,31 +116,25 @@ class OrderTrackingScreen extends StatelessWidget {
                     )
                   ],
                 ),
-
                 child: Padding(
                   padding: const EdgeInsets.all(14),
-
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
 
-                      /// 🔹 Header (الحالة + السعر)
+                      /// الحالة + السعر
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-
-                          /// Badge الحالة
                           Container(
                             padding: const EdgeInsets.symmetric(
                               horizontal: 12,
                               vertical: 6,
                             ),
-
                             decoration: BoxDecoration(
                               color: statusColor(status).withOpacity(0.15),
                               borderRadius: BorderRadius.circular(20),
                             ),
-
                             child: Text(
                               statusText(status),
                               style: TextStyle(
@@ -164,7 +157,7 @@ class OrderTrackingScreen extends StatelessWidget {
 
                       const SizedBox(height: 12),
 
-                      /// 🔹 المنتجات
+                      /// المنتجات داخل الطلب
                       ...List.generate(
                         (data['products'] as List).length,
                             (i) {
@@ -176,9 +169,7 @@ class OrderTrackingScreen extends StatelessWidget {
                               children: [
                                 const Icon(Icons.brightness_1,
                                     size: 6, color: Colors.grey),
-
                                 const SizedBox(width: 8),
-
                                 Expanded(
                                   child: Text(
                                     "${p['name']} × ${p['qty']}",
@@ -193,7 +184,7 @@ class OrderTrackingScreen extends StatelessWidget {
 
                       const SizedBox(height: 12),
 
-                      /// 🔹 Progress
+                      /// progress bar
                       ClipRRect(
                         borderRadius: BorderRadius.circular(10),
                         child: LinearProgressIndicator(

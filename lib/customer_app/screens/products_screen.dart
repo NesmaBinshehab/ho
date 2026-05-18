@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../shared/models/product_model.dart';
 import '../widgets/product_card.dart';
 import '../../core/services/product_service.dart';
 import '../../core/services/cart_service.dart';
@@ -15,7 +16,6 @@ class ProductsScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: AppColors.white,
-
       body: Column(
         children: [
           Container(
@@ -27,7 +27,6 @@ class ProductsScreen extends StatelessWidget {
               right: 15,
             ),
             color: AppColors.primary,
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -35,7 +34,9 @@ class ProductsScreen extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (_) => const CartScreen()),
+                      MaterialPageRoute(
+                        builder: (_) => const CartScreen(),
+                      ),
                     );
                   },
                   child: const Icon(
@@ -59,35 +60,27 @@ class ProductsScreen extends StatelessWidget {
             ),
           ),
 
-          Expanded(
-            child: StreamBuilder(
-              stream: productService.getProducts(),
-              builder: (context, snapshot) {
-                if (!snapshot.hasData) {
-                  return const Center(child: CircularProgressIndicator());
-                }
+      Expanded(
+        child: StreamBuilder<List<ProductModel>>(
+          stream: productService.getProducts(),
+          builder: (context, snapshot) {
+            if (!snapshot.hasData) {
+              return const Center(child: CircularProgressIndicator());
+            }
 
-                final products = snapshot.data!.docs;
+            final products = snapshot.data!;
 
-                return ListView.builder(
-                  itemCount: products.length,
-                  itemBuilder: (context, index) {
-                    final product = products[index];
-                    final data = product.data() as Map<String, dynamic>;
-                    data['id'] = product.id;
+            return ListView.builder(
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                final p = products[index];
 
-                    return ProductCard(
-                      name: data['name'],
-                      desc: data['description'],
-                      image: data['image'],
-                      price: data['price'].toDouble(),
-                      onAddToCart: () => cartService.addToCart(data),
-                    );
-                  },
-                );
+                return Text(p.name);
               },
-            ),
-          ),
+            );
+          },
+        ),
+      ),
         ],
       ),
     );

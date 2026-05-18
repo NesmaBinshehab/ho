@@ -4,7 +4,7 @@ class ProductCard extends StatelessWidget {
   final String name;
   final String desc;
   final String image;
-  final double price;
+  final num price;
   final VoidCallback onAddToCart;
 
   const ProductCard({
@@ -39,16 +39,22 @@ class ProductCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(name,
-                    style: const TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold)),
+                Text(
+                  name,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
 
                 const SizedBox(height: 8),
 
-                Text(desc,
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: Colors.white70)),
+                Text(
+                  desc,
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                  style: const TextStyle(color: Colors.white70),
+                ),
 
                 const Spacer(),
 
@@ -56,7 +62,9 @@ class ProductCard extends StatelessWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          horizontal: 14, vertical: 7),
+                        horizontal: 14,
+                        vertical: 7,
+                      ),
                       decoration: BoxDecoration(
                         color: const Color(0xFFF9AE62),
                         borderRadius: BorderRadius.circular(20),
@@ -77,8 +85,10 @@ class ProductCard extends StatelessWidget {
                           color: const Color(0xFFF9AE62),
                           borderRadius: BorderRadius.circular(14),
                         ),
-                        child: const Icon(Icons.add_shopping_cart,
-                            color: Colors.white),
+                        child: const Icon(
+                          Icons.add_shopping_cart,
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ],

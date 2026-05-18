@@ -25,18 +25,15 @@ class CartItem extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(bottom: 12),
       padding: const EdgeInsets.all(12),
-
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(18),
         boxShadow: const [
-          BoxShadow(color: Colors.black12, blurRadius: 10)
+          BoxShadow(color: Colors.black12, blurRadius: 10),
         ],
       ),
-
       child: Row(
         children: [
-
           ClipRRect(
             borderRadius: BorderRadius.circular(14),
             child: Image.asset(
@@ -53,9 +50,10 @@ class CartItem extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name,
-                    style: const TextStyle(fontWeight: FontWeight.bold)),
-
+                Text(
+                  name,
+                  style: const TextStyle(fontWeight: FontWeight.bold),
+                ),
                 Text("$price ريال"),
 
                 Row(
@@ -64,15 +62,13 @@ class CartItem extends StatelessWidget {
                       onPressed: () => cartService.decrease(id, qty),
                       icon: const Icon(Icons.remove),
                     ),
-
                     Text("$qty"),
-
                     IconButton(
                       onPressed: () => cartService.increase(id),
                       icon: const Icon(Icons.add),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),
